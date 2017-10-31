@@ -14,10 +14,8 @@ function ocuparLugarEnMesaDuoVacia() {
 }
 
 function completarMesaDuo(cantidadMesasDuo) {
-    for(j = 0; j < this.cantidadDeMesasIncompletas; j++) {
-        this.cantidadDeMesasIncompletas = this.cantidadDeMesasIncompletas - 1;
-        cantidadMesasDuo = cantidadMesasDuo - 1;
-    }
+    this.cantidadDeMesasIncompletas = this.cantidadDeMesasIncompletas - 1;
+    cantidadMesasDuo = cantidadMesasDuo - 1;
     return cantidadMesasDuo;
 }
 
@@ -42,7 +40,7 @@ function sumar(cantidad, numero) {
     return cantidad + numero;
 }
 
-function quedanMesasDuoVacias(cantidadMesasDuo) {
+function mesasDuoListasParaCompletar(cantidadMesasDuo) {
     return this.cantidadDeMesasIncompletas === cantidadMesasDuo;
 }
 
@@ -58,7 +56,7 @@ function totalDePersonasALasQueSeLesNegoElServicio(cantidadMesasMono, cantidadMe
             }
             else {
                 if (this.quedanMesasDuo(cantidadMesasDuo)) {
-                    if (!this.quedanMesasDuoVacias(cantidadMesasDuo)) {
+                    if (this.mesasDuoListasParaCompletar(cantidadMesasDuo)) {
                         cantidadDeMesasDuoQueQuedan = this.completarMesaDuo(cantidadMesasDuo);
                         cantidadMesasDuo = cantidadDeMesasDuoQueQuedan;
                     } else {
